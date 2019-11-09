@@ -6,19 +6,19 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.geneLabs.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.geneLabs.SharedViewModel
 import com.example.geneLabs.databinding.FragmentSearchBinding
+import com.example.geneLabs.ui.DataAdapter
 import kotlinx.android.synthetic.main.fragment_search.*
 
 class SearchFragment : Fragment() {
 
     private lateinit var sharedViewModel: SharedViewModel
     private lateinit var searchViewModel: SearchViewModel
+    lateinit var binding: FragmentSearchBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,22 +28,30 @@ class SearchFragment : Fragment() {
         sharedViewModel = activity?.run {
             ViewModelProviders.of(this)[SharedViewModel::class.java]
         } ?: throw Exception("Invalid Activity")
-        return FragmentSearchBinding.inflate(inflater, container, false).apply {
+        binding = FragmentSearchBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = this@SearchFragment
-            viewModel = searchViewModel
-        }.root
+        }
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        search_edit_text.addTextChangedListener(object :TextWatcher{
+        data_recycler_view.layoutManager = LinearLayoutManager(
+            context, LinearLayoutManager.VERTICAL,
+            false
+        )
+        data_recycler_view.adapter = DataAdapter()
+        searchViewModel = ViewModelProviders.of(this)[SearchViewModel::class.java]
+        binding.viewModel = searchViewModel
+        search_edit_text.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 //not implemented
             }
 
             override fun afterTextChanged(text: Editable?) {
-                if(!text.isNullOrEmpty()){
-                    searchViewModel.searchResults.value = sharedViewModel.getDataForSearchKey(text.toString())
+                if (!text.isNullOrEmpty()) {
+                    searchViewModel.searchResults.value =
+                        sharedViewModel.getDataForSearchKey(text.toString())
                 }
             }
 

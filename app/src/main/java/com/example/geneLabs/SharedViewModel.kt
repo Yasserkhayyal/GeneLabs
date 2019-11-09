@@ -23,19 +23,21 @@ class SharedViewModel() : ViewModel() {
                 setShowLoading(true)
             }.doOnDispose {
                 setShowLoading(false)
+            }.doOnSuccess {
+                setShowLoading(false)
+            }.doOnError {
+                setShowLoading(false)
             }.subscribe({
-                setShowLoading(false)
-                response.value = it
+                response.postValue(it)
             }, {
-                setShowLoading(false)
-                error.value = it.message ?: "unknown error"
+                error.postValue(it.message ?: "unknown error")
             })
         disposables.add(newDisposable)
     }
 
 
     private fun setShowLoading(enabled: Boolean) {
-        showLoading.value = enabled
+        showLoading.postValue(enabled)
     }
 
     fun getDataForSearchKey(text: String): List<GeneLabsResponse.Hits.Hit> {

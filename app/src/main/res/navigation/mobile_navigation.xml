@@ -20,9 +20,6 @@
         android:name="com.example.geneLabs.ui.details.DetailsFragment"
         android:label="@string/title_details"
         tools:layout="@layout/fragment_details" >
-        <argument
-            android:name="studyPersonKey"
-            app:argType="com.example.geneLabs.api.GeneLabsResponse.Hits.Hit.Source.StudyPerson"/>
     </fragment>
 
     <fragment

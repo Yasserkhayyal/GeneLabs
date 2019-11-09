@@ -15,7 +15,7 @@ object BindingAdapter {
 
     @BindingAdapter("recyclerViewData")
     @JvmStatic
-    fun setRecyclerViewData(recyclerView: RecyclerView, response: List<GeneLabsResponse.Hits.Hit>) {
+    fun setRecyclerViewData(recyclerView: RecyclerView, response: List<GeneLabsResponse.Hits.Hit>?) {
         val adapter = recyclerView.adapter as DataAdapter
         adapter.setData(response)
     }
