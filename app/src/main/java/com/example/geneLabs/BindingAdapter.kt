@@ -37,11 +37,11 @@ object BindingAdapter {
         val randomGenerator = Random.Default
         val numberOfHashTimes = (firstName.length * 0.7).toInt()//arbitrary number
         var generatedIndex: Int
-        var newUserName = ""
+        var newUserName = firstName
         for (index in 1..numberOfHashTimes) {
             generatedIndex = randomGenerator.nextInt(firstName.length)
             newUserName =
-                firstName.replaceFirst(firstName.get(generatedIndex).toString(), "*", false)
+                newUserName.replaceFirst(firstName.get(generatedIndex).toString(), "*", false)
         }
         textView.setText(newUserName)
     }
