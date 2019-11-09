@@ -15,7 +15,10 @@ object BindingAdapter {
 
     @BindingAdapter("recyclerViewData")
     @JvmStatic
-    fun setRecyclerViewData(recyclerView: RecyclerView, response: List<GeneLabsResponse.Hits.Hit>?) {
+    fun setRecyclerViewData(
+        recyclerView: RecyclerView,
+        response: List<GeneLabsResponse.Hits.Hit>?
+    ) {
         val adapter = recyclerView.adapter as DataAdapter
         adapter.setData(response)
     }
@@ -34,11 +37,13 @@ object BindingAdapter {
         val randomGenerator = Random.Default
         val numberOfHashTimes = (firstName.length * 0.7).toInt()//arbitrary number
         var generatedIndex: Int
+        var newUserName = ""
         for (index in 1..numberOfHashTimes) {
             generatedIndex = randomGenerator.nextInt(firstName.length)
-            firstName.replaceFirst(firstName.get(generatedIndex).toString(),"t",false)
+            newUserName =
+                firstName.replaceFirst(firstName.get(generatedIndex).toString(), "*", false)
         }
-        textView.setText(firstName)
+        textView.setText(newUserName)
     }
 
     @BindingAdapter("inputFilterAllowed")
