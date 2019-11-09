@@ -115,9 +115,7 @@ data class GeneLabsResponse(
                 @SerializedName("Study Title")
                 val studyTitle: String,
                 @SerializedName("thumbnail")
-                val thumbnail: String,
-                @Transient
-                val thumbnailBaseUrl: String = "https://genelab-data.ndc.nasa.gov/"
+                val thumbnail: String
             ) {
                 data class Mission(
                     @SerializedName("End Date")

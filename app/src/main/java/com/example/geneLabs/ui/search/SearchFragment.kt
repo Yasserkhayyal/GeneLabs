@@ -36,6 +36,7 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        data_recycler_view.setHasFixedSize(true)
         data_recycler_view.layoutManager = LinearLayoutManager(
             context, LinearLayoutManager.VERTICAL,
             false
@@ -52,6 +53,8 @@ class SearchFragment : Fragment() {
                 if (!text.isNullOrEmpty()) {
                     searchViewModel.searchResults.value =
                         sharedViewModel.getDataForSearchKey(text.toString())
+                }else{
+                    searchViewModel.searchResults.value = null
                 }
             }
 

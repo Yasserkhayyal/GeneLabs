@@ -44,12 +44,17 @@ class SharedViewModel() : ViewModel() {
         val geneLabsResponse = response.value
         val findings = arrayListOf<GeneLabsResponse.Hits.Hit>()
         geneLabsResponse?.hits?.hits?.forEach { hit ->
-            findings.add(hit)
+            if (hit.source.studyTitle.contains(text)) {
+                findings.add(hit)
+            }
         }
         return findings
     }
 
     override fun onCleared() {
+        disposables.forEach {
+            it.dispose()
+        }
         disposables.clear()
     }
 }

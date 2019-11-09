@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+        <variable
+            name="baseImageUrl"
+            type="String" />
         <variable
             name="responseItem"
             type="com.example.geneLabs.api.GeneLabsResponse.Hits.Hit.Source" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -27,13 +29,13 @@
 
         <ImageView
             android:id="@+id/thumbnail_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dimen_150dp"
+            android:layout_height="@dimen/dimen_150dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/thumbnail_content_description"
-            app:thumbnailSrc="@{responseItem.thumbnailBaseUrl.concat(responseItem.thumbnail)}"
             app:layout_constraintStart_toStartOf="@+id/study_title_text_view"
-            app:layout_constraintTop_toBottomOf="@+id/study_title_text_view" />
+            app:layout_constraintTop_toBottomOf="@+id/study_title_text_view"
+            app:thumbnailSrc="@{baseImageUrl.concat(responseItem.thumbnail)}" />
 
         <TextView
             android:id="@+id/study_description_text_view"

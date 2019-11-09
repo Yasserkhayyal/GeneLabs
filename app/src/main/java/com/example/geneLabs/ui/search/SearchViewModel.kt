@@ -6,5 +6,5 @@ import com.example.geneLabs.api.GeneLabsResponse
 
 class SearchViewModel : ViewModel() {
     val searchKey = MutableLiveData<String>()
-    val searchResults = MutableLiveData<List<GeneLabsResponse.Hits.Hit>>()
+    val searchResults = MutableLiveData<List<GeneLabsResponse.Hits.Hit>?>()
 }

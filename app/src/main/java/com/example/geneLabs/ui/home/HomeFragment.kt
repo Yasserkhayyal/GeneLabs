@@ -37,6 +37,7 @@ class HomeFragment : Fragment(), RecyclerItemClickListener.OnRecyclerClickListen
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.dataRecyclerView.setHasFixedSize(true)
         binding.dataRecyclerView.layoutManager = LinearLayoutManager(
             context, LinearLayoutManager.VERTICAL,
             false
@@ -53,7 +54,7 @@ class HomeFragment : Fragment(), RecyclerItemClickListener.OnRecyclerClickListen
 
     override fun onItemClick(view: View, position: Int) {
         val adapter = binding.dataRecyclerView.adapter as DataAdapter
-        val bundle = bundleOf("key" to adapter.getDataItemAtPosition(position)?.
+        val bundle = bundleOf("studyPersonKey" to adapter.getDataItemAtPosition(position)?.
             source?.studyPerson)
         view.findNavController().navigate(R.id.action_navigation_home_to_navigation_details, bundle)
     }

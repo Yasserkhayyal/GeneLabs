@@ -36,8 +36,9 @@ object BindingAdapter {
         var generatedIndex: Int
         for (index in 1..numberOfHashTimes) {
             generatedIndex = randomGenerator.nextInt(firstName.length)
-            firstName.replaceFirst(firstName.get(generatedIndex), '*', false)
+            firstName.replaceFirst(firstName.get(generatedIndex).toString(),"t",false)
         }
+        textView.setText(firstName)
     }
 
     @BindingAdapter("inputFilterAllowed")

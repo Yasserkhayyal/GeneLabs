@@ -39,6 +39,7 @@ class DataAdapter() : RecyclerView.Adapter<DataAdapter.ItemViewHolder>() {
         val itemBinding: ResponseItemBinding = binding
 
         fun bind(dataItem: GeneLabsResponse.Hits.Hit.Source) {
+            itemBinding.baseImageUrl = "https://genelab-data.ndc.nasa.gov/"
             itemBinding.responseItem = dataItem
             itemBinding.executePendingBindings()
         }
