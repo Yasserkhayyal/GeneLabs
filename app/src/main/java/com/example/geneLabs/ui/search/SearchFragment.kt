@@ -53,7 +53,7 @@ class SearchFragment : Fragment() {
                 if (!text.isNullOrEmpty()) {
                     searchViewModel.searchResults.value =
                         sharedViewModel.getDataForSearchKey(text.toString())
-                }else{
+                } else {
                     searchViewModel.searchResults.value = null
                 }
             }

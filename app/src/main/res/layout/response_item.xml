@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="baseImageUrl"
             type="String" />
+
         <variable
             name="responseItem"
             type="com.example.geneLabs.api.GeneLabsResponse.Hits.Hit.Source" />

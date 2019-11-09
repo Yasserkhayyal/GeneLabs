@@ -54,8 +54,9 @@ class HomeFragment : Fragment(), RecyclerItemClickListener.OnRecyclerClickListen
 
     override fun onItemClick(view: View, position: Int) {
         val adapter = binding.dataRecyclerView.adapter as DataAdapter
-        val bundle = bundleOf("studyPersonKey" to adapter.getDataItemAtPosition(position)?.
-            source?.studyPerson)
+        val bundle = bundleOf(
+            "studyPersonKey" to adapter.getDataItemAtPosition(position)?.source?.studyPerson
+        )
         view.findNavController().navigate(R.id.action_navigation_home_to_navigation_details, bundle)
     }
 

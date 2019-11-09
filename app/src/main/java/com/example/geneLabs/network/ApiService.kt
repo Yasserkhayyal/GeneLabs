@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 private const val BASE_URL = "https://genelab-data.ndc.nasa.gov/genelab/data/search/"
+
 interface ApiService {
 
     @GET(BASE_URL)
