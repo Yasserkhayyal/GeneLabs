@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="studyPerson"
+            type="com.example.geneLabs.api.GeneLabsResponse.Hits.Hit.Source.StudyPerson" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.geneLabs.ui.DetailsFragment">
+
+        <TextView
+            android:id="@+id/first_name_label_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/first_name_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/first_name_value_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{studyPerson.firstName}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/first_name_label_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/first_name_label_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/last_name_label_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/last_name_label_text_view"
+            app:layout_constraintStart_toStartOf="@+id/first_name_label_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/first_name_label_text_view" />
+
+        <TextView
+            android:id="@+id/lats_name_value_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{studyPerson.lastName}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/last_name_label_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/last_name_label_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/middle_initials_label_text_View"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/middle_initials_label"
+            app:layout_constraintStart_toStartOf="@+id/last_name_label_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/last_name_label_text_view" />
+
+        <TextView
+            android:id="@+id/middle_initials_value_test_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/middle_initials_label_text_View"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/middle_initials_label_text_View"
+            tools:text="TextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

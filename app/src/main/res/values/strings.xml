@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">GeneLabs</string>
+    <string name="title_home">Home</string>
+    <string name="title_details">Details</string>
+    <string name="title_search">Search</string>
+    <string name="title_setting">Setting</string>
+    <string name="thumbnail_content_description">thumbnail</string>
+    <string name="factor_label">Factor:</string>
+    <string name="assay_type_label">Asay Type</string>
+    <string name="accession_label">Accession</string>
+    <string name="pi_contact_label">PI/Contact</string>
+    <string name="release_date_label">Release/Publication Date:</string>
+    <string name="first_name_label">First Name:</string>
+    <string name="last_name_label_text_view">Last Name:</string>
+    <string name="middle_initials_label">Middle Initails:</string>
+    <string name="search_edit_text_hint">Search</string>
+    <string name="light_theme">LightTheme</string>
+    <string name="dark_theme">DarkTheme</string>
+</resources>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    
+    <data>
+        <variable
+            name="responseItem"
+            type="com.example.geneLabs.api.GeneLabsResponse.Hits.Hit.Source" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/study_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{responseItem.studyTitle}"
+            tools:text="Comparison of gene .." />
+
+        <ImageView
+            android:id="@+id/thumbnail_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/thumbnail_content_description"
+            app:thumbnailSrc="@{responseItem.thumbnailBaseUrl.concat(responseItem.thumbnail)}"
+            app:layout_constraintStart_toStartOf="@+id/study_title_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/study_title_text_view" />
+
+        <TextView
+            android:id="@+id/study_description_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="@{responseItem.studyDescription}"
+            android:ellipsize="end"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/thumbnail_image_view"
+            app:layout_constraintTop_toTopOf="@+id/thumbnail_image_view"
+            tools:text="The experiment is part.." />
+
+        <TextView
+            android:id="@+id/organism_label_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/study_description_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/study_description_text_view"
+            tools:text="organism:" />
+
+        <TextView
+            android:id="@+id/organism_value_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text=""
+            app:layout_constraintBaseline_toBaselineOf="@+id/organism_label_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/organism_label_text_view"
+            tools:text="Homo sapiens" />
+
+        <TextView
+            android:id="@+id/factor_label_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/factor_label"
+            app:layout_constraintStart_toStartOf="@+id/organism_label_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/organism_label_text_view"
+            tools:text="Factor:" />
+
+        <TextView
+            android:id="@+id/factor_value_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/factor_label_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/factor_label_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/assay_type_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/assay_type_label"
+            app:layout_constraintStart_toStartOf="@+id/factor_label_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/factor_label_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/assay_value_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/assay_type_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/assay_type_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/accession_label_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/accession_label"
+            app:layout_constraintStart_toStartOf="@+id/assay_type_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/assay_type_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/accession_value_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/accession_label_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/accession_label_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/pi_contact_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/pi_contact_label"
+            app:layout_constraintStart_toStartOf="@+id/accession_label_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/accession_label_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/pi_contact_value_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/pi_contact_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pi_contact_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/release_label_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/release_date_label"
+            app:layout_constraintStart_toStartOf="@+id/pi_contact_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/pi_contact_text_view"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/release_value_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/release_label_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/release_label_text_view"
+            tools:text="TextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
